@@ -14,7 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 import os
-
+from .local_settings import *
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -27,9 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=h820n6ka6)!da*+_e$4hw!n$tkj!*a&*q8ury1x_ks#vy-sy6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -42,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'products'
+    'products',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
