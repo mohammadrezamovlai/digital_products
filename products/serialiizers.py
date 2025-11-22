@@ -27,3 +27,4 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('id','title','description','avatar','categories','files','extra','url')
     def get_extra(self,obj):
         return "im mohammadreza movali "
+        
