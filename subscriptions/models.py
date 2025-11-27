@@ -5,12 +5,6 @@ from users.models import AppUser
 from utlis.validators import validate_sku
 
 
-
-
-
-
-
-
 class Package(models.Model):
     title = models.CharField(_('package'),max_length=50)
     sku = models.CharField(_('suck keeping unit'),max_length=20,validators=[validate_sku],db_index=True)
@@ -19,6 +13,7 @@ class Package(models.Model):
     is_enable = models.BooleanField(_('is_enable'),default=True)
     price = models.PositiveIntegerField(_('price'))
     duration = models.DurationField(_('duration'),blank=True,null=True)
+    # gateway = models.ManyToManyField('payment.Gateway')
     created_time = models.DateTimeField(_('created_time'),auto_now_add=True)
     update_time = models.DateTimeField(_('update_time'),auto_now=True)
 
@@ -26,6 +21,10 @@ class Package(models.Model):
         db_table = 'packages'
         verbose_name = _('Package')
         verbose_name_plural = _('packages')
+
+    def __str__(self):
+        return self.title
+    
 
 class Subscription(models.Model):
     user = models.ForeignKey('users.Appuser',related_name='%(class)s',on_delete=models.CASCADE)
