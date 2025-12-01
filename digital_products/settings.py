@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'users',
     'subscriptions',
-    'payment'
+    'payment',
+    # 'import_export'
 ]
 
 MIDDLEWARE = [
@@ -88,6 +89,20 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'mssql',
+#         'NAME': 'MOHAMMAD',
+#         'USER': 'sa',
+#         'PASSWORD': 'mohammad@123',
+#         'HOST': 'localhost',  
+#         'PORT': '1433',       
+#         'OPTIONS': {
+#             'driver': 'ODBC Driver 17 for SQL Server',
+#         },
+#     }
+# }
+
 
 
 # Password validation
@@ -125,6 +140,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+# STATIC_ROOT = 'static'
 
 #media file
 
@@ -137,8 +153,7 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #aptuetion
-# AUTH_USER_MODEL = "users.AppUser"
-
+AUTH_USER_MODEL = "users.User"
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (

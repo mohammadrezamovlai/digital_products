@@ -40,13 +40,13 @@ class Payment(models.Model):
         STATUS_CANCELED:_('payment canceled by user'),
         STATUS_REFUNDED:_('this payment has bin refunded'),
     }
-    user = models.ForeignKey('users.Appuser',verbose_name=_('user'),related_name='%(class)s',on_delete=models.CASCADE)
+    user = models.ForeignKey('users.User',verbose_name=_('user'),related_name='%(class)s',on_delete=models.CASCADE)
     package = models.ForeignKey('subscriptions.Package',verbose_name=_('package'),related_name='%(class)s',on_delete=models.CASCADE)
     gateway = models.ForeignKey(Gateway,verbose_name=_('gateway'),related_name='%(class)s',on_delete=models.CASCADE)
     price = models.PositiveBigIntegerField(_('price'),default=0)
     status = models.PositiveSmallIntegerField(_('status'),choices=STATUS_CHOICES,default=STATUS_VOID,db_index=True)
     device_uuid = models.CharField(_('device_uuid'),max_length=40,blank=True)
-    token = models.CharField()
+    token = models.CharField(max_length=255)
     phone_number = models.BigIntegerField(_('phone_number'),validators=[validate_phone_number],db_index=True)
     consumed_code = models.PositiveIntegerField(_('consumed refrence code '),null=True,db_index=True)
     created_time = models.DateTimeField(_('created_time'),auto_now_add=True,db_index=True)

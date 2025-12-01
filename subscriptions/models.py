@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from users.models import AppUser
+from users.models import User
 from utlis.validators import validate_sku
 
 
@@ -27,10 +27,10 @@ class Package(models.Model):
     
 
 class Subscription(models.Model):
-    user = models.ForeignKey('users.Appuser',related_name='%(class)s',on_delete=models.CASCADE)
+    user = models.ForeignKey('users.User',related_name='%(class)s',on_delete=models.CASCADE)
     package = models.ForeignKey(Package,related_name='%(class)s',on_delete=models.CASCADE)
     created_time = models.DateTimeField(_('created_time'),auto_now_add=True)
-    expire_time = models.DateTimeField(_('expire_time'),auto_now=True)
+    expire_time = models.DateTimeField(_('expire_time'),blank=True,null=True)
 
     class Meta:
         db_table = 'subscriptions'
