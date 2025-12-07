@@ -86,6 +86,3 @@ class PaymentView(APIView):
 
         return Response({'detail': 'OK'}, status=status.HTTP_200_OK)
 
-            
-    
-

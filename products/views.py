@@ -1,31 +1,48 @@
-from django.shortcuts import render
+# from django.shortcuts import render
 
-from rest_framework.response import Response
-from rest_framework.views import APIView
+# from rest_framework.response import Response
+# from rest_framework.views import APIView
+# from rest_framework import viewsets
+
+# from .models import Product,File,Category
+# from.serialiizers import CategorySerializer,FileSerializer,ProductSerializer
+
+
+
+
+# class ProductListView(viewsets.ModelViewSet):
+#     queryset = Product.objects.all()
+#     serializer_class = ProductSerializer
+
+
+# class CategoryListView(viewsets.ModelViewSet):
+#     queryset = Category.objects.all()
+#     serializer_class = CategorySerializer
+
+
+# class FileListView(viewsets.ModelViewSet):
+#     queryset = File.objects.all()
+#     serializer_class = FileSerializer
+#     def perform_create(self, serializer):
+#         product_id = self.kwargs['product_id']
+#         serializer.save(product_id=product_id)
+
 from rest_framework import viewsets
+from .models import Product, Category, File
+from .serialiizers import ProductSerializer, CategorySerializer, FileSerializer
 
-from .models import Product,File,Category
-from.serialiizers import CategorySerializer,FileSerializer,ProductSerializer
-
-
-
-
-class ProductListView(viewsets.ModelViewSet):
+class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
-
-class CategoryListView(viewsets.ModelViewSet):
+class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
-
-class FileListView(viewsets.ModelViewSet):
+class FileViewSet(viewsets.ModelViewSet):
     queryset = File.objects.all()
     serializer_class = FileSerializer
-    def perform_create(self, serializer):
-        product_id = self.kwargs['product_id']
-        serializer.save(product_id=product_id)
+
 
 
 

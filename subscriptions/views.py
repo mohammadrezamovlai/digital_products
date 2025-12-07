@@ -16,13 +16,27 @@ class PackageView(APIView):
         return Response(serializer.data)
 
 
+# class SubscriptionView(APIView):
+#     permission_classes = [IsAuthenticated]
+
+#     def get(self, request):
+#         subscriptions = Subscription.objects.filter(
+#             user=request.user,
+#             expire_time__gte=timezone.now()
+#         )
+
+#         serializer = Subscriptionserailzer(subscriptions, many=True)
+#         return Response(serializer.data)
+from django.db.models import Q
+
 class SubscriptionView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
         subscriptions = Subscription.objects.filter(
-            user=request.user,
-            expire_time__gte=timezone.now()
+            user=request.user
+        ).filter(
+            Q(expire_time__gte=timezone.now()) | Q(expire_time__isnull=True)
         )
 
         serializer = Subscriptionserailzer(subscriptions, many=True)

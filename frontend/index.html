@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        body { background: #f8f9fa; }
+        .product-card img { height: 200px; object-fit: cover; }
+    </style>
+</head>
+
+<body class="container py-4">
+<div id="welcome-box" class="welcome-hidden">
+  <h2 id="welcome-text"></h2>
+</div>
+<!-- ✅ فرم ثبت‌نام -->
+<div class="row mb-4">
+  <div class="col-md-6 mx-auto auth-box">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h3 class="mb-3 text-center">ثبت نام کاربر</h3>
+
+        <form id="register-form">
+          <div class="mb-3">
+            <label class="form-label">نام کاربری</label>
+            <input type="text" class="form-control" name="username" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">نام</label>
+            <input type="text" class="form-control" name="first_name">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">نام خانوادگی</label>
+            <input type="text" class="form-control" name="last_name">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">شماره موبایل</label>
+            <input type="text" class="form-control" name="phone_number" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">ایمیل</label>
+            <input type="email" class="form-control" name="email">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">رمز عبور</label>
+            <input type="password" class="form-control" name="password" required>
+          </div>
+
+          <div id="register-message" class="mt-2 small"></div>
+
+          <button type="submit" class="btn btn-primary w-100">ثبت نام</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ✅ فرم لاگین -->
+<div class="row mb-4">
+  <div class="col-md-6 mx-auto auth-box">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h3 class="mb-3 text-center">ورود کاربر</h3>
+
+        <form id="login-form">
+          <div class="mb-3">
+            <label class="form-label">نام کاربری</label>
+            <input type="text" class="form-control" name="username" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">رمز عبور</label>
+            <input type="password" class="form-control" name="password" required>
+          </div>
+
+          <div id="login-message" class="mt-2 small"></div>
+
+          <button type="submit" class="btn btn-success w-100">ورود</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ✅ لیست محصولات -->
+<h1 class="text-center mb-4">لیست محصولات</h1>
+<div id="products" class="row g-4"></div>
+
+<!-- ✅ پکیج‌ها -->
+<h2 class="text-center mt-5 mb-4">پکیج‌ها</h2>
+<div id="packages" class="row g-4"></div>
+
+<!-- ✅ اشتراک‌های من -->
+<h2 class="text-center mt-5 mb-4">اشتراک‌های من</h2>
+<div id="subscriptions" class="row g-4"></div>
+
+<!-- ✅ پاپ‌آپ لاگین برای خرید -->
+<div id="login-popup" class="modal fade" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">ورود برای خرید پکیج</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="popup-login-form">
+          <div class="mb-3">
+            <label class="form-label">نام کاربری</label>
+            <input type="text" class="form-control" name="username" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">رمز عبور</label>
+            <input type="password" class="form-control" name="password" required>
+          </div>
+          <div id="popup-login-message" class="mt-2 small"></div>
+          <button type="submit" class="btn btn-success w-100">ورود</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./js/main.js"></script>
+<!-- ✅ بخش معرفی محمد -->
+<div class="my-info-section text-center mt-5 mb-4">
+    <img src="photo_24_2025-10-06_14-09-15.jpg" alt="محمد" class="my-photo">
+    <h3 class="mt-3">محمدرضامولایی — توسعه‌دهنده وب</h3>
+    <p class="my-skills">
+        متخصص و توسعه دهنده بک اند و طراح سایت.توانایی کار با گیت و گیت هاب
+        مسلط به زبان بزنامه نویسی پایتون.دانشجوی مهندسی کامپیوتر 
+    </p>
+</div>
+</body>
+</html>
