@@ -408,3 +408,40 @@ window.addEventListener("load", () => {
     box.classList.remove("show");
   }, 3000);
 });
+// =======================
+// چشم‌های کاراکتر موس را دنبال کنند
+// =======================
+document.addEventListener("mousemove", (e) => {
+  const pupils = document.querySelectorAll(".pupil");
+
+  pupils.forEach((pupil) => {
+    const rect = pupil.getBoundingClientRect();
+    const eyeX = rect.left + rect.width / 2;
+    const eyeY = rect.top + rect.height / 2;
+
+    const angle = Math.atan2(e.clientY - eyeY, e.clientX - eyeX);
+    const x = Math.cos(angle) * 6;
+    const y = Math.sin(angle) * 6;
+
+    pupil.style.transform = `translate(${x}px, ${y}px)`;
+  });
+});
+// =======================
+// بستن چشم‌ها هنگام وارد کردن رمز
+// =======================
+document.addEventListener("DOMContentLoaded", () => {
+  const passwordInputs = document.querySelectorAll('input[type="password"]');
+  const character = document.querySelector(".cartoon-character");
+
+  if (!character || passwordInputs.length === 0) return;
+
+  passwordInputs.forEach((input) => {
+    input.addEventListener("focus", () => {
+      character.classList.add("closed");
+    });
+
+    input.addEventListener("blur", () => {
+      character.classList.remove("closed");
+    });
+  });
+});

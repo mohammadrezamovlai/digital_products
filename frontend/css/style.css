@@ -12,13 +12,14 @@
 }
 
 body {
-    background-color: var(--bg);
+    background: radial-gradient(circle at top left, #343444 0, #4a4961 25%, #111827 70%);
     font-family: "IRANSans", sans-serif;
     direction: rtl;
     text-align: right;
     color: var(--text);
     margin: 0;
     padding: 0;
+    min-height: 100vh;
 }
 
 /* ===========================
@@ -26,7 +27,8 @@ body {
 =========================== */
 .card {
     border-radius: var(--radius);
-    background: var(--card-bg);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
     box-shadow: var(--shadow);
     border: none;
     overflow: hidden;
@@ -209,4 +211,82 @@ h1, h2, h3 {
     color: #555;
     margin-top: 10px;
     line-height: 1.8;
+}
+
+/* ===========================
+   کاراکتر کارتونی چشم‌دنبال‌کن
+=========================== */
+.cartoon-character {
+    position: fixed;
+    left: 20px;
+    bottom: 40px;
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* سر */
+.head {
+    width: 90px;
+    height: 90px;
+    background: #ffe0b2;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* چشم‌ها */
+.eye {
+    width: 28px;
+    height: 28px;
+    background: #fff;
+    border-radius: 50%;
+    border: 3px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.pupil {
+    width: 12px;
+    height: 12px;
+    background: #333;
+    border-radius: 50%;
+    transition: 0.1s linear;
+}
+
+/* بدن */
+.body {
+    width: 60px;
+    height: 80px;
+    background: #4f46e5;
+    border-radius: 20px;
+    margin-top: -10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* پاها */
+.legs {
+    width: 40px;
+    height: 50px;
+    background: #333;
+    border-radius: 10px;
+    margin-top: -5px;
+}
+/* حالت چشم بسته برای آدمک */
+.cartoon-character.closed .eye {
+    height: 4px;
+    border-radius: 50px;
+    border-width: 2px;
+}
+
+.cartoon-character.closed .pupil {
+    opacity: 0;
 }
